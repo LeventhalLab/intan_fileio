@@ -9,9 +9,6 @@ function [amplifier_data] = readIntanAmplifierData(filename,t_start,t_end,Fs,amp
 
 num_channels = length(amplifier_channels); % amplifier channel info from header file
 
-fileinfo = dir(filename);
-
-num_samples = fileinfo.bytes/(num_channels * 2); % int16 = 2 bytes
 fid = fopen(filename, 'r');
 
 % figure out the starting point in the file
