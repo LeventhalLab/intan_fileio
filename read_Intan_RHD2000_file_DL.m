@@ -1,5 +1,5 @@
 function intan_data = read_Intan_RHD2000_file_DL(varargin)
-
+%
 % read_Intan_RHD2000_file
 %
 % Version 2.01, 11 October 2017
@@ -16,9 +16,18 @@ function intan_data = read_Intan_RHD2000_file_DL(varargin)
 % >> whos
 % >> amplifier_channels(1)
 % >> plot(t_amplifier, amplifier_data(1,:))
-
+%
 % revised by Daniel Leventhal, 12-06-2019 to accept a filename as an input
-
+% and spit out an intan_data structure as output
+%
+% INPUTS:
+%   
+% VARARGS: 
+%   filename - name of the .rhd file to read
+%
+% OUTPUTS
+%   intan_info structure with the following fields:
+%   THIS NEEDS TO BE FILLED IN ALL THE WAY
 if nargin > 0
     filename = varargin{1};
     
