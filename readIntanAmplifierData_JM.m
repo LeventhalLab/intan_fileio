@@ -12,7 +12,7 @@ function data = readIntanAmplifierData_JM(filename,varargin)
 %
 %  USAGE
 %
-%    data = raedIntanAmplifierData_JM(filename,<options>) - JM 20200407
+%    data = readIntanAmplifierData_JM(filename,<options>) - JM 20200407
 %
 %    filename       file to read
 %    <options>      optional list of property-value pairs (see table below)
@@ -46,9 +46,10 @@ function data = readIntanAmplifierData_JM(filename,varargin)
 % (at your option) any later version.
 
 % Default values
-nChannels = 64;
+nChannels = 1;
 precision = 'int16';
 %warning(['this function assumes int16 precision, if your file is not int16 use load/resample.m'])
+% Leventhal Lab Intan 'amplifier.dat' files are int16 JM 20200603
 skip = 0;
 frequency = 20000;
 channels = [];
