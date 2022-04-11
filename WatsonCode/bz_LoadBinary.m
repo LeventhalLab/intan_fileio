@@ -1,4 +1,4 @@
-function data = readIntanAmplifierData_JM(filename,varargin)
+function data = bz_LoadBinary(filename,varargin)
 
 %bz_LoadBinary - Load data from a multiplexed binary file.
 %   if Varargins are not specified, assume user wants to read the entire file
@@ -12,7 +12,7 @@ function data = readIntanAmplifierData_JM(filename,varargin)
 %
 %  USAGE
 %
-%    data = readIntanAmplifierData_JM(filename,<options>) - JM 20200407
+%    data = bz_LoadBinary(filename,<options>)
 %
 %    filename       file to read
 %    <options>      optional list of property-value pairs (see table below)
@@ -34,9 +34,7 @@ function data = readIntanAmplifierData_JM(filename,varargin)
 %     'downsample'  factor by which to downample by (default = 1)
 %    =========================================================================
 %
-%   Line code example: data = readIntanAmplifierData_JM('amplifier.dat','start',0,'duration',300,'nChannels',64); % plots the first 300s (at a 20000Hz sampling rate)
-%   of all the 64 channels in the amplifier.dat file. Can a slectiely
-%   choose channels as well.
+%   Line code example: data = bz_LoadBinary('amplifier.dat','start',60,'duration',240,'nChannels',64,'channels',[3,5,7]);
 
 % Copyright (C) 2004-2011 by Michaël Zugaro
 %Modified by DLevenstein 2016 to include downsampling
@@ -48,10 +46,9 @@ function data = readIntanAmplifierData_JM(filename,varargin)
 % (at your option) any later version.
 
 % Default values
-nChannels = 1;
+nChannels = 64;
 precision = 'int16';
 %warning(['this function assumes int16 precision, if your file is not int16 use load/resample.m'])
-% Leventhal Lab Intan 'amplifier.dat' files are int16 JM 20200603
 skip = 0;
 frequency = 20000;
 channels = [];

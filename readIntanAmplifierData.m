@@ -19,7 +19,7 @@ function [amplifier_data] = readIntanAmplifierData(filename,t_start,t_end)
 %   to contain everything we would want this file to define and run.
 
 amplifier_channels = 64;
-frequency = 20000;
+frequency = 1;
 
 fid = fopen(filename, 'r');
 

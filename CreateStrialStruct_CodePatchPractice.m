@@ -24,9 +24,7 @@
 % sensor activated through a unknown mechanism. This will be a very rare occurrence (hopefully)
 % As you acquire more data, know this error may occur and if it happens frequenltly, debug (JM 20200601).
 
-if trialData.timing.reactionTime > logTrial.responseDurationLimit 
-% Response Duration Limit is a legacy. Possibly use limitedHold or MovementHold JM 20200601
-%         % nose-out occurred after limited hold expired.
+if trialData.timing.reactionTime > LimitedHold 
         trialData.countsAsTrial = 1;
         trialData.valid = 1;
         trialData.invalidNP = 0;
@@ -34,9 +32,9 @@ if trialData.timing.reactionTime > logTrial.responseDurationLimit
         trialData.movementTooLong = 0;
         trialData.falseStart = 0;
 
-        trialData.timing.wrongAnswerDelay = ...
-            trialEvents{HLidx}.timestamps - ...
-            (trialData.timestamps.tone + logTrial.responseDurationLimit);
+%         trialData.timing.wrongAnswerDelay = ...
+%             trialEvents{HLidx}.timestamps - ...
+%             (trialData.timestamps.tone + logTrial.responseDurationLimit);
 
         % check that outcome, center port, and pre-tone interval match with .log file
         boxLogConflicts.outcome = ~(logTrial.outcome == 4);
@@ -49,4 +47,4 @@ if trialData.timing.reactionTime > logTrial.responseDurationLimit
         trialData.logConflict.boxLogConflicts = boxLogConflicts;
         return;
 
-    end    % end if trialData.timing.reactionTime > logTrial.responseDurationLimit
+    end    % end if trialData.timing.reactionTime > LimitedHold
