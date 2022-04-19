@@ -15,7 +15,7 @@ fid = fopen(filename, 'r');
 
 % figure out the starting point in the file
 bytes_to_skip = samp_start * num_channels * bytes_per_sample;
-samples_to_read = samp_end - samp_start;
+samples_to_read = samp_end - samp_start + 1;
 
 fseek(fid, bytes_to_skip, 0);
 
